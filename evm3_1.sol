@@ -15,8 +15,18 @@ contract TokenFactory {
 
     constructor() {
         // Set up combinations here
-        _combinations[address(0x2b2eCC73501591A3cC8C5037A1088d7cebA7C68A)][address(0x2cC021E6fA4c18Fc2eEBF861A9A3E9255a24099d)] = address(0xf661D832d644f8eAc25CA1B1E7098E1BE6a3D29c); // Example combination: Wood + Rock = Hammer
-        _combinations[address(0x4)][address(0x5)] = address(0x6); // Example combination: Wool + Rope = Net
+        _combinations[address(0x1)][address(0x2)] = address(0x3); // Wool + Rope = Net
+        _combinations[address(0x1)][address(0x3)] = address(0x4); // Wool + Net = Cloth
+        _combinations[address(0x2)][address(0x4)] = address(0x5); // Rope + Cloth = Lumber
+        _combinations[address(0x6)][address(0x7)] = address(0x8); // Clay + Character = Forge
+        _combinations[address(0x1)][address(0x9)] = address(0xA); // Wool + Rock = Metal
+        _combinations[address(0xA)][address(0x8)] = address(0xB); // Metal + Forge = Hammer
+        _combinations[address(0xA)][address(0x5)] = address(0xC); // Metal + Lumber = Ax
+        _combinations[address(0xA)][address(0x5)] = address(0xD); // Metal + Lumber = Saw
+        _combinations[address(0xB)][address(0xC)] = address(0xE); // Hammer + Saw = Cabin
+        _combinations[address(0xB)][address(0xC)] = address(0xF); // Hammer + Saw = Barn
+        _combinations[address(0xE)][address(0xF)] = address(0x10); // Cabin + Barn = Ship
+        _combinations[address(0x11)][address(0x12)] = address(0x13); // Male Character + Female Character = New Character
         // Add more combinations as needed
     }
 
