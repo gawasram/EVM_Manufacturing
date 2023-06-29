@@ -5,8 +5,8 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract clothToken is ERC721, ERC721URIStorage, Ownable {
-    constructor() ERC721("clothToken", "cloth") {}
+contract rowboat1Token is ERC721, ERC721URIStorage, Ownable {
+    constructor() ERC721("rowboat1Token", "Row Boat1") {}
 
     function safeMint(address to, uint256 tokenId, string memory uri)
         public

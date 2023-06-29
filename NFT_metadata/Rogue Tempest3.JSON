@@ -1,0 +1,48 @@
+{
+
+    "title": "Asset Metadata",
+
+    "type": "object",
+
+    "properties": {
+
+        "name": {
+
+            "type": "string",
+
+            "description": "Rogue Tempest3 NFT"
+
+        },
+
+        "description": {
+
+            "type": "string",
+
+            "description": "Rogue Tempest3 NFT"
+
+        },
+
+        "image": {
+
+            "type": "string",
+
+            "description": "A URI pointing to a resource with mime type image/* representing the asset to which this NFT represents. Consider making any images at a width between 320 and 1080 pixels and aspect ratio between 1.91:1 and 4:5 inclusive."
+
+        }
+
+    }
+
+}
+
+
+
+
+Edit it as you wish by implementing your NFT's image's IPFS URL as follows:
+
+"image": {
+
+           
+
+            "description": "ipfs://bafybeif4pg2skrufpqx36hcpc43wy7ikobrmcd55tv22xylvj53djcss7i"
+
+        }
