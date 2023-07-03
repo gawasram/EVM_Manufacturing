@@ -5,4 +5,4 @@ dakotaToken(Dakota):  xdcc4dB454952B406A2e466aB1B7c79E0aE9d4BC698
 
 hansToken(Hans):   xdc1049407ca291670B2CEE0B5667BaCFe3f150e3FA
 
-Wool in TheBlockchain.Land(WOOL):   xdcd9835dd9d5efF8649E0A8e1994909d715A733d08
+lumberToken(Lumber):  xdce094318DC6Cc97Dabf6F951351cC67a7d7169C88
