@@ -1,38 +1,52 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.addbtn {
+  /* Your button styles here */
 }
+
+.connect {
+  /* Styles for connect button */
+}
+
+.connected {
+  /* Styles for connected button */
+}
+
+.container {
+  /* Styles for the container element */
+}
+
+.open-offers {
+  /* Styles for the open-offers section */
+}
+
+.defaultbtn {
+  /* Styles for the default button */
+}
+
+.acceptbtn {
+  /* Styles for the accept button */
+}
+
+.cancelbtn {
+  /* Styles for the cancel button */
+}
+
+.graybtn {
+  /* Styles for the gray button */
+}
+
+.token-wrapper {
+  /* Styles for the token wrapper */
+}
+
+/* Add any additional styles as needed */
