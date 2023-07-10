@@ -3,15 +3,38 @@ import "./app.css";
 import { Web3ModalContext } from "./contexts/Web3ModalProvider";
 import { BlockchainContext } from "./contexts/BlockchainProvider";
 import { HashLoader } from "react-spinners";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-// import { modal } from "./modal.js";
+import Card from 'react-bootstrap/Card';
+
+let imgArray: { title: string, src: string }[] = [
+  { title: "Furnace", src: "https://ipfs.blocksscan.io/unsafe/https://gateway.pinata.cloud/ipfs/QmaNnS2tTaP889iQewvmx3wsQ1fyZKwdLhBwxtaSzgVmPd" },
+  { title: "Furnace", src: "https://ipfs.blocksscan.io/unsafe/https://gateway.pinata.cloud/ipfs/QmaNnS2tTaP889iQewvmx3wsQ1fyZKwdLhBwxtaSzgVmPd" },
+  { title: "Furnace", src: "https://ipfs.blocksscan.io/unsafe/https://gateway.pinata.cloud/ipfs/QmaNnS2tTaP889iQewvmx3wsQ1fyZKwdLhBwxtaSzgVmPd" },
+  { title: "Furnace", src: "https://ipfs.blocksscan.io/unsafe/https://gateway.pinata.cloud/ipfs/QmaNnS2tTaP889iQewvmx3wsQ1fyZKwdLhBwxtaSzgVmPd" },
+  { title: "Furnace", src: "https://ipfs.blocksscan.io/unsafe/https://gateway.pinata.cloud/ipfs/QmaNnS2tTaP889iQewvmx3wsQ1fyZKwdLhBwxtaSzgVmPd" },
+  { title: "Furnace", src: "https://ipfs.blocksscan.io/unsafe/https://gateway.pinata.cloud/ipfs/QmaNnS2tTaP889iQewvmx3wsQ1fyZKwdLhBwxtaSzgVmPd" },
+  { title: "Furnace", src: "https://ipfs.blocksscan.io/unsafe/https://gateway.pinata.cloud/ipfs/QmaNnS2tTaP889iQewvmx3wsQ1fyZKwdLhBwxtaSzgVmPd" },
+  { title: "Furnace", src: "https://ipfs.blocksscan.io/unsafe/https://gateway.pinata.cloud/ipfs/QmaNnS2tTaP889iQewvmx3wsQ1fyZKwdLhBwxtaSzgVmPd" },
+  { title: "Furnace", src: "https://ipfs.blocksscan.io/unsafe/https://gateway.pinata.cloud/ipfs/QmaNnS2tTaP889iQewvmx3wsQ1fyZKwdLhBwxtaSzgVmPd" },
+  { title: "Furnace", src: "https://ipfs.blocksscan.io/unsafe/https://gateway.pinata.cloud/ipfs/QmaNnS2tTaP889iQewvmx3wsQ1fyZKwdLhBwxtaSzgVmPd" },
+  { title: "Furnace", src: "https://ipfs.blocksscan.io/unsafe/https://gateway.pinata.cloud/ipfs/QmaNnS2tTaP889iQewvmx3wsQ1fyZKwdLhBwxtaSzgVmPd" },
+  { title: "Furnace", src: "https://ipfs.blocksscan.io/unsafe/https://gateway.pinata.cloud/ipfs/QmaNnS2tTaP889iQewvmx3wsQ1fyZKwdLhBwxtaSzgVmPd" },
+  { title: "Furnace", src: "https://ipfs.blocksscan.io/unsafe/https://gateway.pinata.cloud/ipfs/QmaNnS2tTaP889iQewvmx3wsQ1fyZKwdLhBwxtaSzgVmPd" },
+  { title: "Furnace", src: "https://ipfs.blocksscan.io/unsafe/https://gateway.pinata.cloud/ipfs/QmaNnS2tTaP889iQewvmx3wsQ1fyZKwdLhBwxtaSzgVmPd" },
+  { title: "Furnace", src: "https://ipfs.blocksscan.io/unsafe/https://gateway.pinata.cloud/ipfs/QmaNnS2tTaP889iQewvmx3wsQ1fyZKwdLhBwxtaSzgVmPd" },
+];
+
+
 
 interface QuerriedOffer {
   id: number;
   offerString: string | null;
   offerCrreator: string | null;
 }
+
 
 const App: React.FC = () => {
   // Accessing the Web3ModalContext
@@ -30,8 +53,12 @@ const App: React.FC = () => {
 
   } = React.useContext(BlockchainContext);
 
+  const [amount, setAmount] = useState("");
+  const [fetchedAmount, setFetchedAmount] = useState("1");
+
   //Loading state
   const [loading, setLoading] = useState<boolean>(false)
+
 
   //allowance status
   const [woodAllowance, setWoodAllowance] = useState("");
@@ -564,178 +591,75 @@ const App: React.FC = () => {
     return `xdc${address.slice(2, width + 2)}...${address.slice(-width)}`;
   }
 
+  return (
+    <main className="main">
 
- return (
-  <main className="main">
-    {/* Left Column: Manufacturing */}
-    <div className="button-container">
-      <>
-        {/* Popup modal */}
-        <Modal show={show} backdrop="static" keyboard={false}>
-          <Modal.Header>
-            <Modal.Title id="example-modal-sizes-title-lg">
-              Provide Approvals
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            {loading ? (
-              <HashLoader color="#0ca02c" />
-            ) : (
-              <button
-                className={`${woodAllowance === "0" ? "approvebtn" : "graybtn"}`}
-                onClick={() => {
-                  woodAllowance === "0"
-                    ? handleApproveWood()
-                    : console.log("Wood approved");
-                }}
-              >
-                {`${woodAllowance === "0" ? "Approve Wood" : "Wood Approved"}`}
-              </button>
-            )}
+      <div className="button-container">
 
-            {/* Similar buttons for other manufacturing options */}
-          </Modal.Body>
-        </Modal>
-      </>
-      {!account ? (
-        <button className="addbtn connect" onClick={handleConnectXDCPay}>
-          Connect XDCPay
-        </button>
-      ) : (
-        <button className="addbtn connected" onClick={handleDisconnectWallet}>
-          {ellipseAddress(account)}
-        </button>
-      )}
-    </div>
-
-    {/* Right Column: List of Open Offers */}
-    <div className="container">
-      <div className="open-offers">
-        <h2>Marketplace Offers (List of Open Offers)</h2>
-        {querriedOffers.length > 0 ? (
-          <ul>
-            {querriedOffers
-              .filter((offer) => typeof offer === "object" && offer !== null)
-              .map((offer, index) => (
-                <li key={offer.id}>
-                  <strong>Offer Id: {offer?.id}</strong>
-                  {/* Offer details */}
-                  <p>{offer.offerString}</p>
-                  <div>
-                    {loading ? (
-                      <HashLoader color="#0ca02c" />
-                    ) : (
-                      <button
-                        className={`defaultbtn ${
-                          marketplaceButtonName[index] === "Accept Offer"
-                            ? "acceptbtn"
-                            : marketplaceButtonName[index] === "Cancel Offer"
-                            ? "cancelbtn"
-                            : "graybtn"
-                        }`}
-                        onClick={() => {
-                          marketplaceButtonName[index] === "Cancel Offer"
-                            ? handleCancelOffer(offer?.id)
-                            : marketplaceButtonName[index] === "Accept Offer"
-                            ? handleTransactAcceptOffer(offer?.id)
-                            : console.log("");
-                        }}
-                      >
-                        {marketplaceButtonName[index]}
-                      </button>
-                    )}
-                  </div>
-                </li>
-              ))}
-          </ul>
+        {!account ? (
+          <button className="addbtn connect" onClick={handleConnectXDCPay}>Connect XDCPay</button>
         ) : (
-          <HashLoader color="#0ca02c" />
+          <button className="addbtn connected" onClick={handleDisconnectWallet}>{ellipseAddress(account)}</button>
         )}
       </div>
+      <Container>
+        <Row>
+          <Col lg={8}>
+            <h1>Manufacturing (List of Build Options)</h1>
+            <Row >
+                {
+                  imgArray.map((item, index) => (
+                    
+                      <Card className="col-2 Card"
+                      key={item.title+index}
+                      // onClick={() => {getInfo(index)}}
+                      >
+                        <Card.Img variant="top" src={item.src} alt={item.title} />
+                      </Card>
+                  ))
+                }
+              </Row>
 
-      {/* Tokens Offered */}
-      <div>
-        {tokensOffered.map((token) => (
-          <div key={token.id} className="token-wrapper">
-            {/* Token amount */}
-            <h3>Amount</h3>
-            <input
-              type="number"
-              value={token.amount}
-              onChange={(e) =>
-                handleTokenOfferedChange(token.id, "amount", e.target.value)
-              }
-            />
-            {/* Tokens offered */}
-            <h3>Tokens Offered</h3>
-            <select
-              value={token.token}
-              onChange={(e) =>
-                handleTokenOfferedChange
-              (token.id, "token", e.target.value)
-              }
-              >
-              <option value="">Select Token</option>
-              <option value="WOOD">WOOD</option>
-              <option value="ROCK">ROCK</option>
-              <option value="CLAY">CLAY</option>
-              <option value="WOOL">WOOL</option>
-              <option value="FISH">FISH</option>
-              </select>
-              </div>
-              ))}
+          </Col>
 
-    {/* Add Another Tokens Offered */}
-    <button className="addbtn" onClick={handleAddTokenOffered}>
-      Add Another
-    </button>
+          <Col lg={4}>
+            <h3 className="text-center">Make FORGE</h3>
+            <h4 className="text-center">100 BRICK make 1 FORGE</h4>
+            <Row className="mt-4">
+              <Col xs={6}>
+                <h6><label htmlFor="amount" className="d-block fs-4">Amount</label></h6>
+                <input
+                  type="number"
+                  id="amount"
+                  className="form-control py-4 ps-3 pe-0 border-dark w-50"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                />
+              </Col>
+              <Col xs={6}>
+                <h6 className="fs-4">Token burned</h6>
+                <p className="mt-3 fs-3">BRICK ERC20</p>
+              </Col>
+            </Row>
 
-    {/* Tokens Wanted */}
-    {tokensWanted.map((token) => (
-      <div key={token.id} className="token-wrapper">
-        {/* Token amount */}
-        <h3>Amount</h3>
-        <input
-          type="number"
-          value={token.amount}
-          onChange={(e) =>
-            handleTokenWantedChange(token.id, "amount", e.target.value)
-          }
-        />
-        {/* Tokens wanted */}
-        <h3>Tokens Wanted</h3>
-        <select
-          value={token.token}
-          onChange={(e) =>
-            handleTokenWantedChange(token.id, "token", e.target.value)
-          }
-        >
-          <option value="">Select Token</option>
-          <option value="WOOD">WOOD</option>
-          <option value="ROCK">ROCK</option>
-          <option value="CLAY">CLAY</option>
-          <option value="WOOL">WOOL</option>
-          <option value="FISH">FISH</option>
-        </select>
-      </div>
-    ))}
+            <Row className="mt-4">
+              <Col xs={6}>
+                <h6><label htmlFor="amount" className="d-block fs-4">Amount</label></h6>
+                <span className="fs-3 ms-4">&nbsp;&nbsp;{fetchedAmount}</span>
+              </Col>
+              <Col xs={6}>
+                <h6 className="fs-4">Token burned</h6>
+                <p className="mt-3 fs-3">FORGE ERC721</p>
+              </Col>
+            </Row>
+            <div className="text-center">
+              <span className="py-2 px-5 bg-success rounded text-white text-uppercase">CREATE FORGE</span>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </main >
+  );
+};
 
-    {/* Add Another Tokens Wanted */}
-    <button className="addbtn" onClick={handleAddTokenWanted}>
-      Add Another
-    </button>
-
-    {/* Create Offer Button */}
-    <div>
-      {loading ? (
-        <HashLoader color="#0ca02c" />
-      ) : (
-        <button id="create-offer" onClick={() => handleCreateOffer()}>
-          {"Create Offer"}
-        </button>
-      )}
-    </div>
-  </div>
-</div>
-</main>
 export default App;
