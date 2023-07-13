@@ -9,10 +9,6 @@
   background-position: center;
 }
 
-/* .Cards {
-  margin: 30px;
-} */
-
 .Card {
   margin: 10px;
   margin-bottom: 20px;
@@ -24,10 +20,6 @@
 .Card:hover {
   background-color: #0ca02c;  
 }
-
-/* .open-offers {
-  background-color: #efefee; */
-/* } */
 
 .token-wrapper {
   margin-top: 15%;
@@ -45,7 +37,6 @@
   margin-bottom: 20px;
   width: 100%;
 }
-
 
 h2 {
   margin-right: 10px;
@@ -79,29 +70,12 @@ button {
   transform: scale(1.1);
 
 }
-
 .button-container {
   position: absolute;
   top: 10px;
   right: 10px;
 }
-
-.connect {
-  border: 2px solid #0ca02c;
-  color: #0ca02c;
-  height: 40px;
-}
 .connect:hover {
-  transform: scale(1.1);
-}
-
-.connected {
-  background-color: #0ca02c;
-  color: #fff;
-  height: 40px;
-  border: none;
-}
-.connected:hover {
   transform: scale(1.1);
 }
 
@@ -112,14 +86,65 @@ button {
   justify-content: flex-start;
 }
 
-.addbtn {
-  border-radius: 5px;
-  transition: all 0.2s linear;
+.connect {
+  width: 230px;
+  height: 50px;
+  background: #9fd187;
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 16px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.connect:active {
+  position: relative;
+  top: 1px;
+}
+
+.mintContainer {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-bottom: 50px;
+}
+
+.center {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mintButton {
+  max-width: 230px;
+  width: 100%;
+  background-color: #9fd187;
+  margin-top: 20px;
+  color: white;
+  height: 45px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
 }
 
-.addbtn:hover {
-  transform: scale(1.1);
+.mintButton:active {
+  position: relative;
+  top: 1px;
 }
 
 .acceptbtn {
@@ -187,3 +212,5 @@ button {
     margin-left: 5%;
   }
 }
+
+
