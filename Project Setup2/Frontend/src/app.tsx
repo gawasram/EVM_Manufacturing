@@ -1,4 +1,3 @@
-// app.tsx
 import React, { useState, useCallback, useEffect } from "react";
 import "./app.css";
 import { Web3ModalContext } from "./contexts/Web3ModalProvider";
@@ -8,7 +7,19 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ImageComponent from "./ImageComponent";
 import { imgArray } from "./imageData";
-import useHandleClick from "./useHandleClick";
+import { useHandleClick } from "./useHandleClick";
+
+
+interface HandleClickProps {
+  setSelectedImage: (src: string) => void;
+  setSelectedImageTitle: (title: string) => void;
+  setSelectedOffer: (offer: string) => void;
+  setAmount: (amount: string) => void;
+  setFetchedAmount: (amount: string) => void;
+  setTokenBurned: (token: string) => void;
+  setTokenReturned: (token: string) => void;
+  setCreateText: (text: string) => void;
+}
 
 const App: React.FC = () => {
   const [slide, setSlide] = useState(0);
@@ -23,27 +34,35 @@ const App: React.FC = () => {
     EGGS,
   } = React.useContext(BlockchainContext);
 
-  const [selectedImage, setSelectedImage] = useState<string>("");
-  const [selectedImageTitle, setSelectedImageTitle] = useState<string>("");
-  const [selectOffer, setSelectOffer] = useState<string>("");  const [amount, setAmount] = useState<string>("");
-  const [fetchedAmount, setFetchedAmount] = useState<string>("");
-  const [tokenBurned, setTokenBurned] = useState<string>("");
-  const [tokenReturned, setTokenReturned] = useState<string>("");
-  const [createText, setCreateText] = useState<string>("");
+    const [selectedImage, setSelectedImage] = useState<string>("");
+    const [selectedImageTitle, setSelectedImageTitle] = useState<string>("");
+    const [selectedOffer, setSelectedOffer] = useState<string>(""); // Corrected name to 'selectedOffer'
+    const [amount, setAmount] = useState<string>("");
+    const [fetchedAmount, setFetchedAmount] = useState<string>("");
+    const [tokenBurned, setTokenBurned] = useState<string>("");
+    const [tokenReturned, setTokenReturned] = useState<string>("");
+    const [createText, setCreateText] = useState<string>("");
 
-  const { handleClick } = useHandleClick({
-    setSelectedImage,
-    setSelectedImageTitle,
-    setSelectOffer, // Updated this line
-    setAmount,
-    setFetchedAmount,
-    setTokenBurned,
-    setTokenReturned,
-    setCreateText,
-  });
-
-
-
+    const { handleClick } = useHandleClick({
+      setSelectedImage,
+      setSelectedImageTitle,
+      setSelectedOffer, // Corrected the name here
+      setAmount,
+      setFetchedAmount,
+      setTokenBurned,
+      setTokenReturned,
+      setCreateText,
+    });
+  
+  //console.log("selectedImage:", selectedImage);
+  //console.log("selectedImageTitle:", selectedImageTitle);
+  //console.log("amount:", amount);
+  //console.log("fetchedAmount:", fetchedAmount);
+ // console.log("tokenBurned:", tokenBurned);
+  //console.log("tokenReturned:", tokenReturned);
+ // console.log("createText:", createText);
+  //console.log("SelectedOffer:", selectedOffer);
+  
   // We need to create our balance states and gachaAllowance state:
   const [egtTokenBalance, setEgtTokenBalance] = useState("");
   const [egtNftBalance, setEgtNftBalance] = useState("");
@@ -142,25 +161,25 @@ const App: React.FC = () => {
           <Col lg={8}>
             <h1>Manufacturing (List of Build Options)</h1>
             <Row>
-            {imgArray.map((item, index) => (
-              <ImageComponent
+              {imgArray.map((item, index) => (
+                <ImageComponent
                 key={item.title + index}
                 src={item.src}
                 title={item.title}
-                amount={amount} // Pass the current 'amount' value
-                offer={item.offer}
+                amount={amount}
+                offer={item.offer} // Update the prop name to 'offer'
                 handleClick={() => {
-                  handleClick(item.src, item.title, amount); // Pass the 'src', 'title', and 'amount'
+                  handleClick(item.src, item.title, amount);
                 }}
               />
-            ))}
-          </Row>
+              ))}
+            </Row>
           </Col>
           <Col lg={4}>
             <Col xs={12}>
-              {selectedImageTitle && (
-                <div className="mt-3 fs-3">
-                  <h3 className="text-center">Make {selectedImageTitle} {selectOffer}</h3>
+            {selectedImageTitle && (
+  <div className="mt-3 fs-3">
+    <h3 className="text-center">Make {selectedImageTitle}</h3>
                   <h4 className="text-center">
                     <div>
                       {amount}
