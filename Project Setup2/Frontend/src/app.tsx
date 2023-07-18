@@ -179,7 +179,7 @@ const App: React.FC = () => {
             <Col xs={12}>
             {selectedImageTitle && (
   <div className="mt-3 fs-3">
-    <h3 className="text-center">Make {selectedImageTitle}</h3>
+    <h3 className="text-center">Make {selectedImageTitle} {selectedOffer}</h3>
                   <h4 className="text-center">
                     <div>
                       {amount}

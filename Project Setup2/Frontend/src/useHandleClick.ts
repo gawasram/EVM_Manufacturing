@@ -21,35 +21,35 @@ interface ImageInfo {
     },
     CLOTH: {
       title: "CLOTH",
-      tokenBurned: "BRICK ERC20",
+      tokenBurned: "8 WOOL ERC20 + Character NFT",
       tokenReturned: "CLOTH NFT",
       createText: "CREATE CLOTH",
       fetchedAmount: (amount: number) => (amount * 2).toString(), // Add fetched amount calculation
-      offer: "100 BRICK ERC20 Make 1 CLOTH NFT", // Add the 'offer' property here
+      offer: "8 WOOL ERC20 + Character NFT", // Add the 'offer' property here
     },
     BRICK: {
       title: "BRICK",
-      tokenBurned: "BRICK ERC20",
+      tokenBurned: "2 CLAY ERC20 + Character NFT",
       tokenReturned: "BRICK NFT",
       createText: "CREATE BRICK",
       fetchedAmount: (amount: number) => (amount + 10).toString(), // Add fetched amount calculation
-      offer: "100 BRICK ERC20 Make 1 BRICK NFT", // Add the 'offer' property here
+      offer: "2 CLAY ERC20 + Character NFT.", // Add the 'offer' property here
     },
     ROPE: {
       title: "ROPE",
-      tokenBurned: "BRICK ERC20",
+      tokenBurned: "3 WOOL ERC20 + Character NFT",
       tokenReturned: "ROPE NFT",
       createText: "CREATE ROPE",
       fetchedAmount: (amount: number) => (amount / 100).toString(), // Add fetched amount calculation
-      offer: "100 BRICK ERC20 Make 1 NAILS NFT", // Add the 'offer' property here
+      offer: "3 WOOL ERC20 + Character NFT.", // Add the 'offer' property here
     },
     LUMBER: {
       title: "LUMBER",
-      tokenBurned: "BRICK ERC20",
+      tokenBurned: "2 WOOD ERC20 + SAW NFT + Character NFT",
       tokenReturned: "LUMBER NFT",
       createText: "CREATE LUMBER",
       fetchedAmount: (amount: number) => (amount * 2).toString(), // Add fetched amount calculation
-      offer: "100 BRICK ERC20 Make 1 CLOTH NFT", // Add the 'offer' property here
+      offer: "2 WOOD ERC20 + SAW NFT + Character NFT", // Add the 'offer' property here
     },
     FORGE: {
       title: "FORGE",
@@ -57,7 +57,7 @@ interface ImageInfo {
       tokenReturned: "FORGE NFT",
       createText: "CREATE FORGE",
       fetchedAmount: (amount: number) => (amount + 10).toString(), // Add fetched amount calculation
-      offer: "100 BRICK ERC20 Make 1 BRICK NFT", // Add the 'offer' property here
+      offer: "100 BRICK ERC20 + 3 CLAY + Holding a Character NFT.", // Add the 'offer' property here
     },
     HAMMER: {
       title: "HAMMER",

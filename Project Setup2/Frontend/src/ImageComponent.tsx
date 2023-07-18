@@ -1,33 +1,24 @@
 // ImageComponent.tsx
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 
 interface ImageComponentProps {
   src: string;
   title: string;
   amount: string;
   offer: string;
-  handleClick: (src: string, title: string, amount: string) => void;
+  handleClick: (src: string, title: string, amount: string) => void; // Updated the handleClick function signature
 }
 
 const ImageComponent: React.FC<ImageComponentProps> = ({ src, title, amount, offer, handleClick }) => {
-  const [showOffer, setShowOffer] = useState(false); // Local state to control Offer visibility
-
+  // Wrap handleClick inside a useCallback hook
   const handleClickCallback = useCallback(() => {
     handleClick(src, title, amount);
-    setShowOffer(true); // Show Offer when the button is clicked
-  }, [src, title, amount, handleClick]);
+  }, [src, title, amount]);
 
   return (
-    <>
-      <div className="col-2 Card" onClick={handleClickCallback}>
-        <img src={src} alt={title} />
-      </div>
-      {showOffer && (
-        <div>
-          <p>{offer}</p>
-        </div>
-      )}
-    </>
+    <div className="col-2 Card" onClick={handleClickCallback}>
+      <img src={src} alt={title} />
+    </div>
   );
 };
 
