@@ -53,6 +53,8 @@ const App: React.FC = () => {
       setTokenReturned,
       setCreateText,
     });
+
+    const [isShowOffer, setIsShowOffer] = useState(false); 
   
   //console.log("selectedImage:", selectedImage);
   //console.log("selectedImageTitle:", selectedImageTitle);
@@ -170,7 +172,10 @@ const App: React.FC = () => {
                 offer={item.offer} // Update the prop name to 'offer'
                 handleClick={() => {
                   handleClick(item.src, item.title, amount);
+                  setIsShowOffer(true);
                 }}
+                isShowOffer={isShowOffer} // Pass the isShowOffer state as a prop
+                setShowOffer={setIsShowOffer} // Pass the setter function as a prop
               />
               ))}
             </Row>
@@ -188,6 +193,11 @@ const App: React.FC = () => {
                 </div>
               )}
             </Col>
+            {isShowOffer && (
+        <div>
+          <p>{selectedOffer}</p>
+        </div>
+            )}
               <Row className="mt-4">
               <Col xs={6}>
                 <h6>
