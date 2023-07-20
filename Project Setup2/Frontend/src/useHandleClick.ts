@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-
-interface ImageInfo {
+export interface ImageInfo {
   title: string;
   tokenBurned: string;
   tokenReturned: string;
@@ -11,44 +10,36 @@ interface ImageInfo {
 }
   
   const imageInfoMap: Record<string, ImageInfo> = {
-    NAILS: {
-      title: "NAILS",
-      tokenBurned: "BRICK ERC20",
-      tokenReturned: "NAILS NFT",
-      createText: "CREATE NAILS",
-      fetchedAmount: (amount: number) => (amount / 100).toString(), // Add fetched amount calculation
-      offer: "100 BRICK ERC20 Make 1 NAILS NFT", // Add the 'offer' property here
-    },
     CLOTH: {
       title: "CLOTH",
-      tokenBurned: "BRICK ERC20",
-      tokenReturned: "CLOTH NFT",
+      tokenBurned: "WOOL ERC20",
+      tokenReturned: "CLOTH ERC20",
       createText: "CREATE CLOTH",
-      fetchedAmount: (amount: number) => (amount * 2).toString(), // Add fetched amount calculation
-      offer: "100 BRICK ERC20 Make 1 CLOTH NFT", // Add the 'offer' property here
+      fetchedAmount: (amount: number) => (amount / 8).toString(), // Add fetched amount calculation
+      offer: "800 BRICK ERC20 Make 1 CLOTH NFT", // Add the 'offer' property here
     },
     BRICK: {
       title: "BRICK",
-      tokenBurned: "BRICK ERC20",
-      tokenReturned: "BRICK NFT",
+      tokenBurned: "CLAY ERC20",
+      tokenReturned: "BRICK ERC20",
       createText: "CREATE BRICK",
-      fetchedAmount: (amount: number) => (amount + 10).toString(), // Add fetched amount calculation
+      fetchedAmount: (amount: number) => (amount / 2).toString(), // Add fetched amount calculation
       offer: "100 BRICK ERC20 Make 1 BRICK NFT", // Add the 'offer' property here
     },
     ROPE: {
       title: "ROPE",
-      tokenBurned: "BRICK ERC20",
-      tokenReturned: "ROPE NFT",
+      tokenBurned: "WOOL ERC20",
+      tokenReturned: "ROPE ERC20",
       createText: "CREATE ROPE",
-      fetchedAmount: (amount: number) => (amount / 100).toString(), // Add fetched amount calculation
+      fetchedAmount: (amount: number) => (amount / 3).toString(), // Add fetched amount calculation
       offer: "100 BRICK ERC20 Make 1 NAILS NFT", // Add the 'offer' property here
     },
     LUMBER: {
       title: "LUMBER",
-      tokenBurned: "BRICK ERC20",
-      tokenReturned: "LUMBER NFT",
+      tokenBurned: "WOOD ERC20",
+      tokenReturned: "LUMBER ERC20",
       createText: "CREATE LUMBER",
-      fetchedAmount: (amount: number) => (amount * 2).toString(), // Add fetched amount calculation
+      fetchedAmount: (amount: number) => (amount / 2).toString(), // Add fetched amount calculation
       offer: "100 BRICK ERC20 Make 1 CLOTH NFT", // Add the 'offer' property here
     },
     FORGE: {
@@ -56,32 +47,24 @@ interface ImageInfo {
       tokenBurned: "BRICK ERC20",
       tokenReturned: "FORGE NFT",
       createText: "CREATE FORGE",
-      fetchedAmount: (amount: number) => (amount + 10).toString(), // Add fetched amount calculation
+      fetchedAmount: (amount: number) => (amount / 100).toString(), // Add fetched amount calculation
       offer: "100 BRICK ERC20 Make 1 BRICK NFT", // Add the 'offer' property here
     },
     HAMMER: {
       title: "HAMMER",
-      tokenBurned: "BRICK ERC20",
+      tokenBurned: "WOOD ERC20 & IRON ERC20 ",
       tokenReturned: "HAMMER NFT",
       createText: "CREATE HAMMER",
-      fetchedAmount: (amount: number) => (amount / 100).toString(), // Add fetched amount calculation
+      fetchedAmount: (amount: number) => (amount / 1).toString(), // Add fetched amount calculation
       offer: "100 BRICK ERC20 Make 1 NAILS NFT", // Add the 'offer' property here
     },
     ANVIL: {
       title: "ANVIL",
-      tokenBurned: "BRICK ERC20",
+      tokenBurned: " IRON ERC20 & WOOD",
       tokenReturned: "ANVIL NFT",
       createText: "CREATE ANVIL",
-      fetchedAmount: (amount: number) => (amount * 2).toString(), // Add fetched amount calculation
+      fetchedAmount: (amount: number) => (amount / 100).toString(), // Add fetched amount calculation
       offer: "100 BRICK ERC20 Make 1 CLOTH NFT", // Add the 'offer' property here
-    },
-    BOAT: {
-      title: "BOAT",
-      tokenBurned: "BRICK ERC20",
-      tokenReturned: "BOAT NFT",
-      createText: "CREATE BOAT",
-      fetchedAmount: (amount: number) => (amount + 10).toString(), // Add fetched amount calculation
-      offer: "100 BRICK ERC20 Make 1 BRICK NFT", // Add the 'offer' property here
     },
     NET: {
       title: "NAILS",
@@ -91,44 +74,28 @@ interface ImageInfo {
       fetchedAmount: (amount: number) => (amount / 100).toString(), // Add fetched amount calculation
       offer: "100 BRICK ERC20 Make 1 NAILS NFT", // Add the 'offer' property here
     },
-    SHEARS: {
-      title: "CLOTH",
-      tokenBurned: "BRICK ERC20",
-      tokenReturned: "SHEARS NFT",
-      createText: "CREATE SHEARS",
-      fetchedAmount: (amount: number) => (amount * 2).toString(), // Add fetched amount calculation
-      offer: "100 BRICK ERC20 Make 1 CLOTH NFT", // Add the 'offer' property here
-    },
     AXE: {
       title: "BRICK",
-      tokenBurned: "BRICK ERC20",
+      tokenBurned: "WOOD & IRON",
       tokenReturned: "AXE NFT",
       createText: "CREATE AXE",
-      fetchedAmount: (amount: number) => (amount + 10).toString(), // Add fetched amount calculation
+      fetchedAmount: (amount: number) => (amount / 1).toString(), // Add fetched amount calculation
       offer: "100 BRICK ERC20 Make 1 BRICK NFT", // Add the 'offer' property here
     },
-    SHOVEL: {
-      title: "NAILS",
-      tokenBurned: "BRICK ERC20",
-      tokenReturned: "SHOVEL NFT",
-      createText: "CREATE SHOVEL",
-      fetchedAmount: (amount: number) => (amount / 100).toString(), // Add fetched amount calculation
-      offer: "100 BRICK ERC20 Make 1 NAILS NFT", // Add the 'offer' property here
-    },
-    HANDSAW: {
-      title: "CLOTH",
-      tokenBurned: "BRICK ERC20",
-      tokenReturned: "HANDSAW NFT",
-      createText: "CREATE HANDSAW",
-      fetchedAmount: (amount: number) => (amount * 2).toString(), // Add fetched amount calculation
+    SAW: {
+      title: "SAW",
+      tokenBurned: " WOOD & IRON",
+      tokenReturned: "SAW NFT",
+      createText: "CREATE SAW",
+      fetchedAmount: (amount: number) => (amount / 1).toString(), // Add fetched amount calculation
       offer: "100 BRICK ERC20 Make 1 CLOTH NFT", // Add the 'offer' property here
     },
     PICKAXE: {
       title: "PICKAXE",
-      tokenBurned: "BRICK ERC20",
+      tokenBurned: "WOOD & IRON",
       tokenReturned: "PICKAXE NFT",
       createText: "CREATE PICKAXE",
-      fetchedAmount: (amount: number) => (amount + 10).toString(), // Add fetched amount calculation
+      fetchedAmount: (amount: number) => (amount / 1).toString(), // Add fetched amount calculation
       offer: "100 BRICK ERC20 Make 1 BRICK NFT", // Add the 'offer' property here
     },
 
@@ -146,6 +113,7 @@ interface ImageInfo {
     setCreateText: (text: string) => void;
   }
   
+  
   export function useHandleClick({
     setSelectedImage,
     setSelectedImageTitle,
@@ -156,7 +124,7 @@ interface ImageInfo {
     setTokenReturned,
     setCreateText,
   }: HandleClickProps) {
-    const handleClick = (src: string, title: string, amount: string) => {
+    const handleClick = (src: string, title: string, amount: string, offer: string) => {
       setSelectedImage(src);
       setSelectedImageTitle(title);
   
@@ -176,27 +144,29 @@ interface ImageInfo {
       if (!isNaN(parsedAmount)) {
         setAmount(amount);
         setFetchedAmount(imageInfo.fetchedAmount(parsedAmount).toString());
-        setSelectedOffer(imageInfo.offer);
+        setSelectedOffer(offer);
   
-        // Add console.log statements to log selectedOffer and fetchedAmount
-        
+        console.log("selectedOffer:", offer);
+        console.log("fetchedAmount:", imageInfo.fetchedAmount(parsedAmount).toString());
       } else {
         setAmount("");
         setFetchedAmount("");
         setSelectedOffer("");
+  
+        console.log("selectedOffer:", "");
+        console.log("fetchedAmount:", "");
       }
-    };
-  
-    const selectOffer = (title: string, amount: string) => {
-      const imageInfo = imageInfoMap[title];
-      if (imageInfo) {
-        const parsedAmount = parseFloat(amount);
-        if (!isNaN(parsedAmount)) {
-          return imageInfo.fetchedAmount(parsedAmount) + " " + imageInfo.offer;
-        }
-          }
-      return "";
-    };
-  
-    return { handleClick, selectOffer };
-  }
+    }
+  const selectOffer = (title: string, amount: string) => {
+    const imageInfo = imageInfoMap[title];
+    if (imageInfo) {
+      const parsedAmount = parseFloat(amount);
+      if (!isNaN(parsedAmount)) {
+        return imageInfo.fetchedAmount(parsedAmount) + " " + imageInfo.offer;
+      }
+    }
+    return "";
+  };
+
+  return { handleClick, selectOffer };
+}

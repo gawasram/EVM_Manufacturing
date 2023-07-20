@@ -1,4 +1,3 @@
-// ImageComponent.tsx
 import React, { useCallback } from "react";
 
 interface ImageComponentProps {
@@ -6,14 +5,24 @@ interface ImageComponentProps {
   title: string;
   amount: string;
   offer: string;
-  handleClick: (src: string, title: string, amount: string) => void; // Updated the handleClick function signature
+  handleClick: () => void; 
+  isShowOffer: boolean;
+  setShowOffer: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const ImageComponent: React.FC<ImageComponentProps> = ({ src, title, amount, offer, handleClick }) => {
-  // Wrap handleClick inside a useCallback hook
+const ImageComponent: React.FC<ImageComponentProps> = ({
+  src,
+  title,
+  amount,
+  offer,
+  handleClick,
+  isShowOffer,
+  setShowOffer,
+}) => {
   const handleClickCallback = useCallback(() => {
-    handleClick(src, title, amount);
-  }, [src, title, amount]);
+    handleClick();
+    setShowOffer(true); // Since isShowOffer is not being passed directly, use the setter function here
+  }, [handleClick, setShowOffer]);
 
   return (
     <div className="col-2 Card" onClick={handleClickCallback}>

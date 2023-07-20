@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ImageComponent from "./ImageComponent";
 import { imgArray } from "./imageData";
-import { useHandleClick } from "./useHandleClick";
+import { useHandleClick, ImageInfo } from "./useHandleClick";
 
 
 interface HandleClickProps {
@@ -34,37 +34,27 @@ const App: React.FC = () => {
     EGGS,
   } = React.useContext(BlockchainContext);
 
-    const [selectedImage, setSelectedImage] = useState<string>("");
-    const [selectedImageTitle, setSelectedImageTitle] = useState<string>("");
-    const [selectedOffer, setSelectedOffer] = useState<string>(""); // Corrected name to 'selectedOffer'
-    const [amount, setAmount] = useState<string>("");
-    const [fetchedAmount, setFetchedAmount] = useState<string>("");
-    const [tokenBurned, setTokenBurned] = useState<string>("");
-    const [tokenReturned, setTokenReturned] = useState<string>("");
-    const [createText, setCreateText] = useState<string>("");
+  const [selectedImage, setSelectedImage] = useState<string>("");
+  const [selectedImageTitle, setSelectedImageTitle] = useState<string>("");
+  const [selectedOffer, setSelectedOffer] = useState<string>("");
+  const [amount, setAmount] = useState<string>("");
+  const [fetchedAmount, setFetchedAmount] = useState<string>("");
+  const [tokenBurned, setTokenBurned] = useState<string>("");
+  const [tokenReturned, setTokenReturned] = useState<string>("");
+  const [createText, setCreateText] = useState<string>("");
+  const { handleClick, selectOffer } = useHandleClick({
+    setSelectedImage,
+    setSelectedImageTitle,
+    setSelectedOffer,
+    setAmount,
+    setFetchedAmount,
+    setTokenBurned,
+    setTokenReturned,
+    setCreateText,
+  });
 
-    const { handleClick } = useHandleClick({
-      setSelectedImage,
-      setSelectedImageTitle,
-      setSelectedOffer, // Corrected the name here
-      setAmount,
-      setFetchedAmount,
-      setTokenBurned,
-      setTokenReturned,
-      setCreateText,
-    });
+  const [isShowOffer, setIsShowOffer] = useState(false);
 
-    const [isShowOffer, setIsShowOffer] = useState(false); 
-  
-  //console.log("selectedImage:", selectedImage);
-  //console.log("selectedImageTitle:", selectedImageTitle);
-  //console.log("amount:", amount);
-  //console.log("fetchedAmount:", fetchedAmount);
- // console.log("tokenBurned:", tokenBurned);
-  //console.log("tokenReturned:", tokenReturned);
- // console.log("createText:", createText);
-  //console.log("SelectedOffer:", selectedOffer);
-  
   // We need to create our balance states and gachaAllowance state:
   const [egtTokenBalance, setEgtTokenBalance] = useState("");
   const [egtNftBalance, setEgtNftBalance] = useState("");
@@ -131,8 +121,6 @@ const App: React.FC = () => {
     }
   };
 
-  // <=== This section of the code is pretty much left unchanged ===>
-
   const handleConnectWallet = useCallback(() => {
     connect();
   }, [connect]);
@@ -165,40 +153,33 @@ const App: React.FC = () => {
             <Row>
               {imgArray.map((item, index) => (
                 <ImageComponent
-                key={item.title + index}
-                src={item.src}
-                title={item.title}
-                amount={amount}
-                offer={item.offer} // Update the prop name to 'offer'
-                handleClick={() => {
-                  handleClick(item.src, item.title, amount);
-                  setIsShowOffer(true);
-                }}
-                isShowOffer={isShowOffer} // Pass the isShowOffer state as a prop
-                setShowOffer={setIsShowOffer} // Pass the setter function as a prop
-              />
+                  key={item.title + index}
+                  src={item.src}
+                  title={item.title}
+                  amount={amount}
+                  offer={item.offer}
+                  handleClick={() => handleClick(item.src, item.title, item.amount, item.offer)}
+                  isShowOffer={isShowOffer}
+                  setShowOffer={setIsShowOffer}
+                />
               ))}
             </Row>
           </Col>
           <Col lg={4}>
             <Col xs={12}>
-            {selectedImageTitle && (
-  <div className="mt-3 fs-3">
-    <h3 className="text-center">Make {selectedImageTitle} {selectedOffer}</h3>
-                  <h4 className="text-center">
-                    <div>
-                      {amount}
-                    </div>
-                  </h4>
+              {selectedImageTitle && (
+                <div className="mt-3 fs-3">
+                  <h3 className="text-center">Make {selectedImageTitle}</h3>
                 </div>
               )}
+
             </Col>
             {isShowOffer && (
-        <div>
-          <p>{selectedOffer}</p>
-        </div>
+              <div>
+                <h5><p>{selectedOffer}</p></h5>
+              </div>
             )}
-              <Row className="mt-4">
+            <Row className="mt-4">
               <Col xs={6}>
                 <h6>
                   <label htmlFor="amount" className="d-block fs-4">
@@ -226,7 +207,7 @@ const App: React.FC = () => {
                     Amount
                   </label>
                 </h6>
-                <span className="fs-3 ms-4">&nbsp;&nbsp;{amount}</span> {/* Use 'amount' here instead of 'fetchedAmount' */}
+                <span className="fs-3 ms-4">&nbsp;&nbsp;{fetchedAmount}</span>
               </Col>
               <Col xs={6}>
                 <h6 className="fs-4">Token Returned</h6>
