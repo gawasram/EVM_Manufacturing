@@ -158,7 +158,7 @@ contract MultiNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         mintFishNetToken(msg.sender,
             string(
                 abi.encodePacked(
-                    "https://gateway.pinata.cloud/ipfs/QmYDm8Bzye4RMS7h9HUv1KoupajqXcsfKUWwMeGvsC3ZkA/fishnet/",
+                    "https://gateway.pinata.cloud/ipfs/QmRp2mhLQw1JhDMqNpNHfD5URfeNapjJwR5GBmEg1VEugL/FishNet.json",
                     Strings.toString(_tokenIdCounter.current()),
                     ".json"
                 )
@@ -172,7 +172,7 @@ contract MultiNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         mintForgeToken(msg.sender,
             string(
                 abi.encodePacked(
-                    "https://gateway.pinata.cloud/ipfs/QmYDm8Bzye4RMS7h9HUv1KoupajqXcsfKUWwMeGvsC3ZkA/forge/",
+                    "https://gateway.pinata.cloud/ipfs/QmRF1j5g9tDQpsZX5zhkBo5XBsjrLk7ui6JkxjRpp5fv6r",
                     Strings.toString(_tokenIdCounter.current()),
                     ".json"
                 )
@@ -186,7 +186,7 @@ contract MultiNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         mintAnvilToken(msg.sender,
             string(
                 abi.encodePacked(
-                    "https://gateway.pinata.cloud/ipfs/QmYDm8Bzye4RMS7h9HUv1KoupajqXcsfKUWwMeGvsC3ZkA/anvil/",
+                    "https://gateway.pinata.cloud/ipfs/QmRp2mhLQw1JhDMqNpNHfD5URfeNapjJwR5GBmEg1VEugL/Anvil.json",
                     Strings.toString(_tokenIdCounter.current()),
                     ".json"
                 )
@@ -200,7 +200,7 @@ contract MultiNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         mintHammerToken(msg.sender,
             string(
                 abi.encodePacked(
-                    "https://gateway.pinata.cloud/ipfs/QmYDm8Bzye4RMS7h9HUv1KoupajqXcsfKUWwMeGvsC3ZkA/hammer/",
+                    "https://gateway.pinata.cloud/ipfs/QmRp2mhLQw1JhDMqNpNHfD5URfeNapjJwR5GBmEg1VEugL/Hammer.json",
                     Strings.toString(_tokenIdCounter.current()),
                     ".json"
                 )
@@ -214,7 +214,7 @@ contract MultiNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         mintAxeToken(msg.sender,
             string(
                 abi.encodePacked(
-                    "https://gateway.pinata.cloud/ipfs/QmYDm8Bzye4RMS7h9HUv1KoupajqXcsfKUWwMeGvsC3ZkA/axe/",
+                    "https://gateway.pinata.cloud/ipfs/QmRp2mhLQw1JhDMqNpNHfD5URfeNapjJwR5GBmEg1VEugL/Axe.json",
                     Strings.toString(_tokenIdCounter.current()),
                     ".json"
                 )
@@ -228,7 +228,7 @@ contract MultiNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         mintSawToken(msg.sender,
             string(
                 abi.encodePacked(
-                    "https://gateway.pinata.cloud/ipfs/QmYDm8Bzye4RMS7h9HUv1KoupajqXcsfKUWwMeGvsC3ZkA/saw/",
+                    "https://gateway.pinata.cloud/ipfs/QmRp2mhLQw1JhDMqNpNHfD5URfeNapjJwR5GBmEg1VEugL/Saw.json",
                     Strings.toString(_tokenIdCounter.current()),
                     ".json"
                 )
@@ -242,7 +242,7 @@ contract MultiNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         mintPickAxeToken(msg.sender,
             string(
                 abi.encodePacked(
-                    "https://gateway.pinata.cloud/ipfs/QmYDm8Bzye4RMS7h9HUv1KoupajqXcsfKUWwMeGvsC3ZkA/pickaxe/",
+                    "https://gateway.pinata.cloud/ipfs/QmRp2mhLQw1JhDMqNpNHfD5URfeNapjJwR5GBmEg1VEugL/PickAxe.json",
                     Strings.toString(_tokenIdCounter.current()),
                     ".json"
                 )
@@ -256,7 +256,7 @@ contract MultiNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         mintRowBoatToken(msg.sender,
             string(
                 abi.encodePacked(
-                    "https://gateway.pinata.cloud/ipfs/QmYDm8Bzye4RMS7h9HUv1KoupajqXcsfKUWwMeGvsC3ZkA/rowboat/",
+                    "https://gateway.pinata.cloud/ipfs/QmRp2mhLQw1JhDMqNpNHfD5URfeNapjJwR5GBmEg1VEugL/RowBoat.json",
                     Strings.toString(_tokenIdCounter.current()),
                     ".json"
                 )
