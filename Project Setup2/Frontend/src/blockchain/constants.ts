@@ -1,12 +1,12 @@
 export const EggTokenAddress = {
   Contract: {
-    51: "0xe7A9aA18a88fd5117116d2ea4920FD0Bf1fC57Db",
+    51: "0x66d51b9726215b31589e5c50123843adb316f23d",
   },
 };
 
 export const EggNFTAddress = {
   Contract: {
-    51: "0xA1bcBfCA088cCfBa3e66C6a7082fF32ce6A2b855",
+    51: "0x317066d1daacf751b95967bb3779feee1203722c",
   },
 };
 

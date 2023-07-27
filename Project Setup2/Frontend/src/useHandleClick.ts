@@ -34,6 +34,14 @@ export interface ImageInfo {
       fetchedAmount: (amount: number) => (amount / 3).toString(), // Add fetched amount calculation
       offer: "100 BRICK ERC20 Make 1 NAILS NFT", // Add the 'offer' property here
     },
+    IRON: {
+      title: "IRON",
+      tokenBurned: "ROCK ERC20 + Burn 1 WOOD",
+      tokenReturned: "IRON ERC20",
+      createText: "CREATE IRON",
+      fetchedAmount: (amount: number) => (amount / 3).toString(), // Add fetched amount calculation
+      offer: "100 BRICK ERC20 Make 1 NAILS NFT", // Add the 'offer' property here
+    },
     LUMBER: {
       title: "LUMBER",
       tokenBurned: "WOOD ERC20",
